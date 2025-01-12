@@ -1,0 +1,181 @@
+/* Main Content */
+#content {
+    display: grid;
+    grid-template-areas:
+        "welcome welcome welcome"
+        "spotify location bank"
+        "weather calendar maps";
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: auto auto 2fr;
+    gap: 20px;
+    padding: 20px;
+    max-width: auto;
+    margin: 0 20px;
+}
+
+/* Section Styles */
+section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+
+
+/* Section Specific Styles */
+#welcome {
+    grid-area: welcome;
+}
+
+
+
+#spotify {
+    grid-area: spotify;
+}
+
+
+
+#location {
+    grid-area: location;
+    padding: 5px 35px 5px 10px; /* Add padding for the magnifying glass */
+}
+
+#locationText {
+    font-size: 48px;
+}
+
+/* Input Styles */
+#location input[type="text"] {
+    font-family: inherit; /* Inherit font-family from parent */
+    font-size: 48px; /* Inherit font-size from parent */
+    color: inherit; /* Inherit text color from parent */
+    text-align: inherit; /* Inherit text alignment from parent */
+    border: 1px solid lightgray; /* Light gray border */
+    outline: none; /* Remove focus outline */
+    background-color: transparent; /* Match the background with parent */
+    width: 100%; /* Ensure it adjusts to the span's width */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    line-height: 1.5; /* Match the line-height of the span */
+    vertical-align: top; /* Prevent shifting due to vertical alignment */
+}
+
+/* Dropdown container */
+.dropdown {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+/* Individual suggestion item */
+.dropdown-item {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* Magnifying Glass Icon Styling */
+.search {
+    position: absolute;
+    top: 50%; /* Align vertically */
+    right: 10px;
+    transform: translateY(-50%); /* Center vertically */
+    width: 48px; /* Adjust size as needed */
+    height: 48px;
+    cursor: pointer;
+}
+
+/* Container for Input and Icon */
+.editable-location {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+
+
+#banking {
+    grid-area: bank;
+}
+
+
+
+#weather {
+    grid-area: weather;
+    height: 600px;
+}
+
+
+
+#calendar {
+    grid-area: calendar;
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: 600px;
+}
+
+#calendar:hover {
+    transform: scale(1.025);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure the link behaves like a block element */
+.calendar-link {
+    grid-area: calendar;
+    text-decoration: none;
+    display: block; /* Ensures it takes the full width */
+}
+
+/* Optionally add padding to the link to give it a clickable area */
+.calendar-link:hover {
+    cursor: pointer;
+}
+
+
+
+#maps {
+    grid-area: maps;
+    height: 600px;
+}
+
+#mapFrame {
+    border-radius: 8px;
+    width: 100%;
+    height: 300px;
+}
+
+
+
+/* Footer */
+footer {
+    width: 100%;
+    text-align: center;
+    background-color: #0073e6;
+    color: white;
+    padding: 10px 0;
+    font-size: 0.9em;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #content {
+        grid-template-areas:
+            "welcome"
+            "spotify"
+            "location"
+            "banking"
+            "weather"
+            "calendar"
+            "maps";
+        grid-template-columns: 1fr;
+    }
+}

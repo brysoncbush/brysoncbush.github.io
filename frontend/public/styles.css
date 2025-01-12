@@ -1,0 +1,70 @@
+/* General Layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* Header Ribbon */
+#HeaderRibbon {
+    width: 100%;
+    background-color: #0073e6;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+#HeaderRibbon h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+#HeaderRibbon nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#HeaderRibbon nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+/* Hidden by default */
+.optionsTab {
+    position: fixed;
+    right: -300px; /* Initially off-screen */
+    top: 0;
+    width: 250px;
+    height: 100%;
+    transition: right 0.3s ease; /* Smooth transition */
+    box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    z-index: 1000;
+}
+
+/* List inside the tab */
+.optionsTab ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.optionsTab ul li {
+    margin: 20px 0;
+}
+
+.optionsTab ul li a {
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Change the button icon */
+#OptionsIcon {
+    width: 30px;
+    height: 30px;
+}

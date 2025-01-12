@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../images/favicon.ico">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtitR8lFqlvEyzDrbI01yu5My5OLtF0bE&libraries=places" async defer></script>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+
+    <link href="home.css" rel="stylesheet">
+    <link href="../public/styles.css" rel="stylesheet">
+
+    <title>Personal Dashboard</title>
+
+</head>
+<body>
+    <!-- Header Ribbon -->
+    <header id="HeaderRibbon">
+
+        <h1 id="SiteName">Personal Dashboard</h1>
+
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="../weather/weather.html">Weather</a></li>
+                <li><a href="../calendar/calendar.html">Calendar</a></li>
+                <li><a href="ChatGPT/chatgpt.html">ChatGPT</a></li>
+                <li><a href="../bank/bank.html">Banking</a></li>
+            </ul>
+        </nav>
+
+        <button id="options" onclick="optionsDisplay()">
+            <img src="../images/options.png" alt="Options Icon" id="OptionsIcon">
+        </button>
+
+    </header>
+
+    <!-- Welcome Message Section -->
+    <section id="welcome">
+        <p>Your personalized assistant is here. <a href="https://chat.openai.com" target="_blank">Ask ChatGPT</a></p>
+    </section>
+
+    <!-- Main Content Area -->
+    <main id="content">
+        <!-- Spotify Section -->
+        <section id="spotify">
+            <h3>Spotify</h3>
+
+            <button id="togglePlay">Toggle Play</button>
+
+
+            <button id="spotify-btn">Open Spotify</button>
+        </section>
+
+        <!-- Banking Section -->
+        <section id="banking">
+            <h3>Banking Overview</h3>
+            <p>Checking Account: $2,500</p>
+            <p>Savings Account: $5,000</p>
+            <a href="Bank/bank.html">View detailed financial breakdown</a>
+        </section>
+
+        <!-- Location Section -->
+        <section id="location">
+            <h3>Location</h3>
+            <span id="locationText" onclick="makeLocationEditable()">Fetching your location...</span>
+            <div id="locationDropdown" class="hidden"></div>
+        </section>
+
+        <!-- Calendar Section -->
+        <a href="../calendar/calendar.html" class="calendar-link">
+            <section id="calendar">
+                <h3>Calendar</h3>
+                <p>Today's events will appear here...</p>
+            </section>
+        </a>        
+
+        <!-- Weather Section -->
+        <section id="weather">
+            <h3>Weather Summary</h3>
+            <p>Sunny, 75°F</p>
+            <a href="Weather/weather.html">View full weather details</a>
+        </section>
+
+        <!-- Google Maps Section -->
+        <section id="maps">
+            <h3>Google Maps</h3>
+            <iframe 
+                title="Map"
+                id="mapFrame" 
+                src="" 
+                width="100%" 
+                height="300px" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Personal Dashboard. All rights reserved.</p>
+        <a href="#">Settings</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a>
+    </footer>
+
+    <script src="home.js" defer></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+body {
+    background: linear-gradient(rgb(44, 71, 145),rgb(70, 214, 250), rgb(212, 223, 235));
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(49, 49, 59);
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Calendar table styles */
+#calendar {
+    border: 2px solid rgb(50, 50, 50);
+    width: 100%;
+    table-layout: fixed;
+    border-radius: 5px;
+    border-spacing: 0;
+    background-color: #f9f9f9;
+    gap: 20px;
+    padding: 20px;
+}
+
+#prevButton,
+#nextButton,
+#calendarMonth {
+    text-align: center; /* Center the text inside the cells */
+}
+
+#calendarMonth {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+
+}
+
+.calendarTop:hover {
+    transform: scale(1.025);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.calendarMonthName {
+    height: 10vh;
+    background-color: #cad1fc;
+    color: #ffffff;
+}
+
+.calendarTop {
+    height: 10vh;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+}
+
+.calendarTop:hover {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+#calendarHeaderRow th {
+    border: 2px solid black; /* Add solid black border to each header cell */
+}
+
+#calendarHeaderRow {
+    border-collapse: collapse; /* Ensure table borders behave as a single border */
+}
+
+#calendarHeaderRow th:first-child {
+    border-left: 2px solid black; /* Leftmost border for the first header cell */
+}
+
+#calendarHeaderRow th:last-child {
+    border-right: 2px solid black; /* Rightmost border for the last header cell */
+}
+
+#calendarHeaderRow th {
+    background-color: #ff7f7f; /* Optional: Add background for distinction */
+    padding: 10px;
+    text-align: center;
+}
+
+.calendarCell {
+    height: 10vh;
+    background-color: #ffffff;
+    padding: 10px;
+    border: 1px solid rgb(200, 200, 200);
+    text-align: left;
+    vertical-align: top;
+    position: relative;
+}
+
+.headerRibbon {
+    background-color: #333;
+    padding: 10px;
+    text-align: left;
+}
+
+.headerLink {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.headerLink:hover {
+    text-decoration: underline;
+}
+
+.blankColumn {
+    background-color: #f0f0f0; /* Light gray for visual distinction */
+    pointer-events: none; /* Prevent interactions */
+}
+
+/* Event display in calendar cell */
+.eventText {
+    background-color: #e6f7e6;
+    border-radius: 3px;
+    padding: 3px;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+
+/* Add Event button */
+#addEventButton {
+    margin: 15px 0;
+    padding: 10px 20px;
+    background-color: #45a6e8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#addEventButton:hover {
+    background-color: #45a6e8;
+}
+
+/* Modal styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Color picker styles */
+#colorPicker {
+    display: flex;
+    gap: 10px;
+}
+
+.colorOption {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.colorOption:hover {
+    border: 2px solid #000;
+}
+
+.colorButton {
+    width: 30px;
+    height: 30px;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 50%;
+}
+
+.colorButton:focus {
+    outline: 2px solid #000;
+}
+
+/* Style for the delete button */
+.deleteButton {
+    background-color: #ff6666;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 3px 19px;
+    margin-left: 15px;
+    cursor: pointer;
+    float: right;
+    font-size: 0.9em;
+}
+
+.deleteButton:hover {
+    background-color: #ff4d4d;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    text-align: center;
+    background-color: #0073e6;
+    color: white;
+    padding: 10px 0;
+    font-size: 0.9em;
+}

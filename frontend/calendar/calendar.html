@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../images/favicon.ico">
+
+    <link href="calendar.css" rel="stylesheet">
+    <link href="../public/styles.css" rel="stylesheet">
+
+    <title>Calendar</title>
+
+</head>
+<body>
+    <!-- Header Ribbon -->
+    <header id="HeaderRibbon">
+
+        <h1 id="SiteName">Personal Calendar</h1>
+
+        <nav>
+            <ul>
+                <li><a href="../home/home.html">Home</a></li>
+                <li><a href="../weather/weather.html">Weather</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="ChatGPT/chatgpt.html">ChatGPT</a></li>
+                <li><a href="../bank/bank.html">Banking</a></li>
+            </ul>
+        </nav>
+
+        <button id="options" onclick="optionsDisplay()">
+            <img src="../images/options.png" alt="Options Icon" id="OptionsIcon">
+        </button>
+
+    </header>
+
+    <!-- Calendar Controls -->
+    <div id="calendarControls">
+        <button id="toggleViewButton" onclick="toggleView()">Show Month View</button>
+    </div>
+
+    <!-- Calendar Table -->
+    <table id="calendar">
+
+        <caption style="display: none">Calendar</caption>
+
+        <tr id="calendarHeaderRow">
+        <!-- Left button -->
+        <th id="prevButton" class="calendarTop" onclick="changeTime(-1)">Prev Month</th>
+
+        <!-- Month name with colspan to span the remaining columns -->
+        <th id="calendarMonth" class="calendarMonthName" colspan="7">Month</th>
+
+        <!-- Right button -->
+        <th id="nextButton" class="calendarTop" onclick="changeTime(1)">Next Month</th>
+        </tr>
+
+        <tr>
+            <th class="blankColumn" scope="col"></th>
+            <th class="calendarHeader" scope="col">Sunday</th>
+            <th class="calendarHeader" scope="col">Monday</th>
+            <th class="calendarHeader" scope="col">Tuesday</th>
+            <th class="calendarHeader" scope="col">Wednesday</th>
+            <th class="calendarHeader" scope="col">Thursday</th>
+            <th class="calendarHeader" scope="col">Friday</th>
+            <th class="calendarHeader" scope="col">Saturday</th>
+            <th class="blankColumn" scope="col"></th>
+        </tr>
+
+        <tbody id="calendarBody">
+            <!-- Days will be dynamically generated -->
+        </tbody>
+
+    </table>
+
+    <!-- Modal for creating events -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add Event</h2>
+            <form id="eventForm">
+                <label for="eventDate">Date:</label>
+                <input type="date" id="eventDate" readonly><br><br>
+                
+                <label for="eventText">Event:</label>
+                <input type="text" id="eventText" required><br><br>
+                
+                <label for="eventTime">Time:</label>
+                <input type="time" id="eventTime"><br><br>
+                
+                <label for="eventLocation">Location:</label>
+                <input type="text" id="eventLocation"><br><br>
+                
+                <button type="button" onclick="addEvent()">Add Event</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Personal Dashboard. All rights reserved.</p>
+    </footer>
+
+    <script src="calendar.js"></script>
+    <script src="scripts.js"></script>
+
+</body>
+</html>
