@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         map = new google.maps.Map(mapElement, mapOptions);
-        marker = new google.maps.Marker({
+        marker = new google.maps.marker.AdvancedMarkerElement({
             position: { lat, lng },
             map,
         });
@@ -217,41 +217,3 @@ document.addEventListener("DOMContentLoaded", function () {
     // Attach click handler for making location editable
     document.getElementById("locationText").onclick = makeLocationEditable;
 });
-
-window.onSpotifyWebPlaybackSDKReady = () => {
-    const token = 'BQBL4rdybsHeiIP2Ju0M_xXMTSI40TYkGgO3eJDT7aRwaMXBZ6nBI176Sf7h79KByCLRIDLlBbhIKMufhItg-e-NngZPYN2P5tO_h8sO2zc4eXYZC8twyVuSenfXjjed-YibFs2LbEEKH3vrNKVa0EEC7SP5lcu_LkeKZfwXnP7Y7z8Om_D6mOOec8PXWXh3vysCK1bnIZ8NCMXFCmjxVkePLccGT9biu5frIKhVbA8SIJ89jfM13dFqMT28A4nEbHegghBHf2JJ3FbqiDh9km0cI7-MpDuv_JH7Cw4r-tPJ6VuANxv03es9Esg9_TabXPBSd8vYRJae';
-    
-    const player = new Spotify.Player({
-      name: 'Web Playback SDK Quick Start Player',
-      getOAuthToken: cb => { cb(token); },
-      volume: 0.5
-    });
-
-    // Ready
-    player.addListener('ready', ({ device_id }) => {
-        console.log('Ready with Device ID', device_id);
-    });
-
-    // Not Ready
-    player.addListener('not_ready', ({ device_id }) => {
-        console.log('Device ID has gone offline', device_id);
-    });
-
-    player.addListener('initialization_error', ({ message }) => {
-        console.error(message);
-    });
-
-    player.addListener('authentication_error', ({ message }) => {
-        console.error(message);
-    });
-
-    player.addListener('account_error', ({ message }) => {
-        console.error(message);
-    });
-
-    document.getElementById('togglePlay').onclick = function() {
-        player.togglePlay();
-    };
-
-    player.connect();
-}
