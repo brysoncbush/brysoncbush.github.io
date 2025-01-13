@@ -28,48 +28,54 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fetch user's location and set it on the map
     function fetchUserLocation() {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                async (position) => {
-                    const lat = position.coords.latitude;
-                    const lng = position.coords.longitude;
+            navigator.permissions.query({ name: 'geolocation' }).then(function(permissionStatus) {
+            if (permissionStatus.state === 'denied') {
+                // You can display a message asking the user to enable location access in their browser settings
+                console.log("Geolocation permission is denied. Please enable it in your browser settings.");
+            } else {
+                navigator.geolocation.getCurrentPosition(
+                    async (position) => {
+                        const lat = position.coords.latitude;
+                        const lng = position.coords.longitude;
 
-                    updateMap(lat, lng);
+                        updateMap(lat, lng);
 
-                    // Fetch location details using Google Maps API
-                    const apiKey = "AIzaSyDezZNFZiRbddUtkA9NJcFrTDs5sBBVadw";
-                    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`;
+                        // Fetch location details using Google Maps API
+                        const apiKey = "AIzaSyDezZNFZiRbddUtkA9NJcFrTDs5sBBVadw";
+                        const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`;
 
-                    try {
-                        const response = await fetch(url);
-                        const data = await response.json();
+                        try {
+                            const response = await fetch(url);
+                            const data = await response.json();
 
-                        if (data.status === "OK") {
-                            let town = "Unknown";
-                            let state = "Unknown";
+                            if (data.status === "OK") {
+                                let town = "Unknown";
+                                let state = "Unknown";
 
-                            data.results[0].address_components.forEach((component) => {
-                                if (component.types.includes("locality")) {
-                                    town = component.long_name;
-                                }
-                                if (component.types.includes("administrative_area_level_1")) {
-                                    state = component.long_name;
-                                }
-                            });
+                                data.results[0].address_components.forEach((component) => {
+                                    if (component.types.includes("locality")) {
+                                        town = component.long_name;
+                                    }
+                                    if (component.types.includes("administrative_area_level_1")) {
+                                        state = component.long_name;
+                                    }
+                                });
 
-                            document.getElementById("locationText").innerText = `${town}, ${state}`;
-                        } else {
-                            document.getElementById("locationText").innerText = "Unable to fetch location details.";
+                                document.getElementById("locationText").innerText = `${town}, ${state}`;
+                            } else {
+                                document.getElementById("locationText").innerText = "Unable to fetch location details.";
+                            }
+                        } catch (error) {
+                            console.error("Error fetching location details:", error);
+                            document.getElementById("locationText").innerText = "Error fetching location details.";
                         }
-                    } catch (error) {
-                        console.error("Error fetching location details:", error);
-                        document.getElementById("locationText").innerText = "Error fetching location details.";
+                    },
+                    (error) => {
+                        console.error("Error getting geolocation:", error);
+                        document.getElementById("locationText").innerText = "Geolocation is not available.";
                     }
-                },
-                (error) => {
-                    console.error("Error getting geolocation:", error);
-                    document.getElementById("locationText").innerText = "Geolocation is not available.";
-                }
-            );
+                );
+            }});
         } else {
             document.getElementById("locationText").innerText = "Geolocation is not supported by this browser.";
         }
