@@ -1,6 +1,6 @@
 const CLIENT_ID = 'b0f154bb4e844ed6b47aa014572f1bfc';
 const CLIENT_SECRET = '03c070ad60e84d04a5857d1c99e35a47';
-const REDIRECT_URI = 'https://brysoncbush.github.io/index.html';
+const REDIRECT_URI = 'https://brysoncbush.github.io/frontend/home/home.html';
 const SCOPES = 'user-read-playback-state user-modify-playback-state streaming'; // Define necessary scopes
 
 // OAuth authorization URL
