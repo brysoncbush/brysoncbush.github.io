@@ -22,6 +22,8 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     if (!accessToken) {
         console.error('No access token found. Please log in to Spotify.');
         return;
+    } else {
+        console.log('Access token created successfully.');
     }
 
     const player = new Spotify.Player({
